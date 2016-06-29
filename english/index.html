@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Sodeyama">
+  <title>専門英語 pp.054-058</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/theme/serif.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/print/pdf.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+
+<section>
+  <h1 class="title">専門英語 pp.054-058</h1>
+  <h2 class="author">Sodeyama</h2>
+  <h3 class="date">2016.6.21</h3>
+</section>
+<section class="slide level1">
+
+<p>In situations like this, we pass the problem back to the caller by throwing an exception:</p>
+<hr />
+<p>このような状況(スタックが空なのにポップしようとしたとき)では,例外を投げることによって,プログラムを呼び出し元へ返す:</p>
+</section>
+<section class="slide level1">
+
+<p>Throwing an exception causes the current method to stop execution immediately, and gives the caller a chance (and the responsibility) to deal with the mistake.</p>
+<hr />
+<p>例外を投げることで,実行中のメソッドは直ちに実行をやめ,誤りを処理する機会(または対応)を呼び出し元に与える.</p>
+</section>
+<section class="slide level1">
+
+<p>In this case, the empty stack exception is more informative than a generic array index exception would have been.</p>
+<hr />
+<p>この場合,“the empty stack exception”(スタックが空であるという例外)は,一般的に起こり得た“array index exception”(配列の添え字の例外)よりも有意義(な情報)である.</p>
+</section>
+<section class="slide level1">
+
+<p>Table 3.2 lists two of the exceptions available in the java.util library.</p>
+<hr />
+<p>3.2の表はjava.util libraryで利用可能な二つの例外を示している.</p>
+</section>
+<section class="slide level1">
+
+<p>Because they come from a library, remember to import these exceptions before using them.</p>
+<hr />
+<p>これらの例外はlibraryにのっているので,使う前にはimportすることを忘れてはいけない.</p>
+</section>
+<section class="slide level1">
+
+<p>TABLE 3.2: java.util Exceptions</p>
+<hr />
+<p>TABLE 3.2: java.utilの例外</p>
+</section>
+<section class="slide level1">
+
+<p>EmptyStackException Indicates the stack is empty.</p>
+<hr />
+<p>スタックが空であることを示す.</p>
+</section>
+<section class="slide level1">
+
+<p>NoSuchElementException Indicates the requested element does not exist.</p>
+<hr />
+<p>要求された要素が存在しないことを示す.</p>
+</section>
+<section class="slide level1">
+
+<p>Resizing the Array</p>
+<hr />
+<p>配列のリサイズ(大きさの再変更)</p>
+</section>
+<section class="slide level1">
+
+<p>Recall that once an array has been created, its length can never be changed.</p>
+<hr />
+<p>思い出してください.一度配列が宣言されてしまったら,その配列の長さを変えることは決してできません.</p>
+</section>
+<section class="slide level1">
+
+<p>Therefore, if push() is called when the array is full, we need to create a new array, copy the existing stack items into the new array, and then set data to refer to the new array.</p>
+<hr />
+<p>それ故に,配列がいっぱいの(これ以上要素が入らない)ときにpush()を呼び出したら,新たな配列を宣言し, いっぱいになったスタックにある要素を新しい配列へコピーし,そして新しい配列を参照してデータをセットするといったことが必要となる.</p>
+</section>
+<section class="slide level1">
+
+<p>We put this work into a private resize() method in Listing 3.2.</p>
+<hr />
+<p>この働きをListing 3.2 のresize()(プライベートメソッド)のなかでみてみよう.</p>
+</section>
+<section class="slide level1">
+
+<p>By doubling the length each time the array becomes full, we minimize the impact of resizing on the performance of push().</p>
+<hr />
+<p>配列がいっぱいになるたびに配列の長さを二倍にすることで,push()の性能への(配列の大きさの)リサイズの影響を最小限にしている.</p>
+</section>
+<section class="slide level1">
+
+<p>However, calculating that precise effect is beyond the scope of this text.</p>
+<hr />
+<p>しかしながら,その正確な(実際の)影響の計算(分析)はこの本であつかう内容全体をこえる(この本では扱わない).</p>
+</section>
+<section class="slide level1">
+
+<p>Java has built-in system methods for copying arrays that should be used in production code, but we are doing it by hand to practice working with array.</p>
+<hr />
+<p>Javaは,製品コード中で使用する(ような),配列をコピーするための組み込みのシステムメソッド(標準で実装されているもの)を持つが,配列で動作を実践するために(ここでは)手作業でそれを行っている.</p>
+</section>
+<section class="slide level1">
+
+<p>In addition, the queue array implementation will need its own specialized resizing method.</p>
+<hr />
+<p>加えて,キュー(配列)の実装はそれ自身の特別な(専用の)リサイズを行うメソッドが必要だ.</p>
+</section>
+<section class="slide level1">
+
+<p>Exercises</p>
+<hr />
+<p>演習問題</p>
+</section>
+<section class="slide level1">
+
+<ol type="1">
+<li>Write the Java code to declare an IntStack named s that refers to an IntArrayStack, and then push the values 10, 20, 30, and 40 onto s.</li>
+</ol>
+<hr />
+<ol type="1">
+<li>IntArrayStackを参照する,sという名前のIntStackを宣言するコードを書き,そこへ10,20,30,40をpushしなさい.</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="2" type="1">
+<li>Write the Java code to declare an IntStack named operands referring to an IntArrayStack, and then push the values 17, 0, -12, and 101 onto operands.</li>
+</ol>
+<hr />
+<ol start="2" type="1">
+<li>IntArrayStackを参照する,operandsという名前のIntStackを宣言するコードを書き,そこへ17,0,-12,101をpushしなさい.</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="3" type="1">
+<li>Use Listing 3.2 to:</li>
+</ol>
+<hr />
+<ol start="3" type="1">
+<li>Listing 3.2について,次の問に答えなさい:</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<p>(a)Explain why the starting value of top is -1.</p>
+<hr />
+<p>(a)最初の値が-1である理由を説明しなさい.</p>
+</section>
+<section class="slide level1">
+
+<p>(b)Explain why the DEFAULT_CAPACITY variable is declared final and static.</p>
+<hr />
+<p>(b)DEFAULT_CAPACITY変数がfinalかつstaticな宣言なのか説明しなさい.</p>
+</section>
+<section class="slide level1">
+
+<p>(c)Explain the use of prefix increment in line 14.</p>
+<hr />
+<p>(c)14行目で,前置加算を使ってる理由を説明しなさい.</p>
+</section>
+<section class="slide level1">
+
+<p>(d)Explain the use of postfix decrement in line 19.</p>
+<hr />
+<p>(d)19行目で後置加算を使ってる理由を説明しなさい.</p>
+</section>
+<section class="slide level1">
+
+<p>(e)Explain why, without line 18, a call to pop() on an empty stack would cause an ArrayIndexOutOfBoundsExcepyion.</p>
+<hr />
+<p>(e)18行目以外で,空のスタック上でのpop()の呼び出しはArrayIndexOutOfBoundsExcepyionを引き起こすであろう理由を説明しなさい.</p>
+</section>
+<section class="slide level1">
+
+<ol start="4" type="1">
+<li>Suppose s is a reference to an IntArrayStack. Explain the difference between s.size() and s.data.length.</li>
+</ol>
+<hr />
+<ol start="4" type="1">
+<li>sはIntArrayStackへの参照であるとする.s.size()とs.data.lengthの違いを説明せよ.</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="5" type="1">
+<li>Draw the contents of the s.data array after the main() method of Listing 3.2 has run. Indicate the value of s.top.</li>
+</ol>
+<hr />
+<ol start="5" type="1">
+<li>Listing 3.2のmain()メソッドを実行した後のs.data(に格納されている)配列の内容を書き下しなさい.s.topの値を示しなさい.</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="6" type="1">
+<li>Finish the IrntArayStack class of Listing 3.2 by adding these methods from the IntStack interface: (a)isEmpty() (b)peek() throw an exception if the stack is empty. (c)size()</li>
+</ol>
+<hr />
+<ol start="6" type="1">
+<li>IntStackインタフェイスから以下のメソッドを加えることによって,Listing 3.2のIrntArayStackクラスを終了しなさい: (a)isEmpty() (b)スタックが空なら例外を投げる. (c)size()</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="7" type="1">
+<li>Modify Listing 3.2 to: (a)Rewrite the push() method without using the prefix increment operator. Discuss the tradeoffs. (b)Rewrite the pop() method without using the postfix decrement operator. Discuss the tradeoffs.</li>
+</ol>
+<hr />
+<ol start="7" type="1">
+<li>Listing 3.2を次のように修正しなさい: (a)前置加算演算子を使わないpush()メソッドに書き換えなさい.その修正のトレードオフについて議論しなさい. (b)後置減算演算子を使わないpush()メソッドに書き換えなさい.その修正のトレードオフについて議論しなさい.</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="8" type="1">
+<li>Modify the main() method of Listing 3.2 to:</li>
+</ol>
+<hr />
+<ol start="8" type="1">
+<li>Listing 3.2のmain()メソッドを次のように修正しなさい:</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<p>(a)Pop and print each item in the stack until it is empty.</p>
+<hr />
+<p>(a)スタックが空になるまで,スタックの中の要素それぞれに対してポップとプリントをしなさい.</p>
+</section>
+<section class="slide level1">
+
+<p>(b)Push and pop a large number of items to test the array resizing.</p>
+<hr />
+<p>(b)配列の大きさのリサイズ(再変更)の確認のために,最大要素数分の要素をプッシュ,ポップしなさい.</p>
+</section>
+<section class="slide level1">
+
+<p>(c)Test the isEmpty() method both before and after items have been pushed.</p>
+<hr />
+<p>(c)要素をプッシュする前とした後の両方で,isEmpty()メソッドのテストをしなさい.</p>
+</section>
+<section class="slide level1">
+
+<p>(d)Test the size() method before and after items have been pushed.</p>
+<hr />
+<p>(d)要素をプッシュする前とした後の両方で,size()メソッドのテストをしなさい.</p>
+</section>
+<section class="slide level1">
+
+<ol start="9" type="1">
+<li>Explain why each of these IntArrayStack methods is O(1): (a)isEmpty() (b)peek() (c)pop() (d)push() Ignore resizing. (e)size()</li>
+</ol>
+<hr />
+<ol start="9" type="1">
+<li>(以下に示す)IntArrayStackのメソッドそれぞれがO(1)である理由を説明しなさい: (a)isEmpty() (b)peek() (c)pop() (d)push() リサイズを無視 (e)size()</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="10" type="1">
+<li>Modify Listing 3.2 to add a second constructor with one parameter specifying the starting capacity of the stack. Modify the existing constructor to call the new constructor using this() (see page 29).</li>
+</ol>
+<hr />
+<ol start="10" type="1">
+<li>スタックの最初の容量を示す一つの引数をもつ2つ目のコンストラクタを加えるように修正しなさい. すでにあるコンストラクタをthis()を使って新しいコンストラクタを呼び出すように修正しなさい.</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="11" type="1">
+<li>Modify the pop() method of Listing 3.2 to reduce the array length by half if the number of elements in the stack is less than or equal to onefourth the current length of the array (but do not let the array have a size smaller than 10).</li>
+</ol>
+<hr />
+<ol start="11" type="1">
+<li>スタックの要素数が配列の現在の大きさの1/4以下のときは,配列の大きさを半分に減らす(ただし10より小さいサイズの配列にならない)ようにListing 3.2のpop()メソッドを修正しなさい.</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<p>Include an output statement in the resize() method to report each resizing, and then test your modification by pushing and then popping a large number of elements.</p>
+<hr />
+<p>resize()メソッドに,それぞれの変更を報告するためのアウトプット文を加え,たくさんの要素をプッシュ,ポップすることにより,修正箇所が正しく動作するか確認しなさい.</p>
+</section>
+<section class="slide level1">
+
+<ol start="12" type="1">
+<li>Instead of having a top instance variable, the IntArrayStack class could use a size instance variable that stores the number of elements in the stack.</li>
+</ol>
+<hr />
+<ol start="12" type="1">
+<li>top(インスタンス変数)をもつかわりに,IntArrayStackクラスが,スタックの要素の数を表すsize(インスタンス変数)を使うようにする.</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<p>Rewrite Listing 3.2 to use a size instance variable instead of top. (In other words, your code should not use top at all; all calculations should be done in items of size.) Discuss the tradeoffs between these two approaches.</p>
+<hr />
+<p>topのかわりにsizeを使うようにListing 3.2を書き換えなさい. (言い換えれば,コードは(全くもって)topを使うべきではなく,全ての計算をsizeの(示す)要素で行うべきなのだ.) 二通りのアプローチのトレードオフについて議論しなさい.</p>
+</section>
+<section class="slide level1">
+
+<p>3.3 Linked Implementation</p>
+<hr />
+<p>3.3 リンクによるスタックの実装</p>
+</section>
+<section class="slide level1">
+
+<p>Although the array implementation may seem natural, it is not the only way to build a stack.</p>
+<hr />
+<p>配列での実装は自然(なように)に見えるが,スタックの構築はそれ(配列での実装)だけじゃない.</p>
+</section>
+<section class="slide level1">
+
+<p>Think again about the reason we didn’t keep the top of the stack at the front of the array implementation (pages 52-53):</p>
+<hr />
+<p>配列での実装では,先頭をスタックの最上段として保存していなかった理由をもう一度考えてみてほしい:</p>
+</section>
+<section class="slide level1">
+
+<p>pushing and popping required shifting elements in the array to either make room or close gaps.</p>
+<hr />
+<p>プッシュやポップが配列に対して要素移動を要求するのは(要素間の)間隔を詰めるためであり,(要素と要素の間に)空きを作るためだった.</p>
+</section>
+<section class="slide level1">
+
+<p>A linked implementation allows us to insert or remove items at any location without having to shift elements already in place.</p>
+<hr />
+<p>リンクによるスタックの実装は,すでにある空間に要素を移動させることなく,どこ(において)でも要素の削除,挿入ができる.</p>
+</section>
+<section class="slide level1">
+
+<p>The tradeoff is that linked structures lack the direct, indexed access to every item that arrays have.</p>
+<hr />
+<p>そのトレードオフは配列がもつ,要素への直接的な添え字によるアクセス(参照)がリンク構造ではできないことだ.</p>
+</section>
+<section class="slide level1">
+
+<p>Linked Lists</p>
+<hr />
+<p>連結リスト</p>
+</section>
+<section class="slide level1">
+
+<p>The simplest linked structure is a linked list, a collection of nodes in which each node points to the node that follows it.</p>
+<hr />
+<p>単純なリンク構造は連結リストである.それは,それぞれ(のノード)が自分の後ろにつながるノードを指すような,ノードの集合である.</p>
+</section>
+<section class="slide level1">
+
+<p>We will use nodes with two fields:</p>
+<hr />
+<p>二つのフィールドでノードを扱える:</p>
+</section>
+<section class="slide level1">
+
+<p>data to hold whatever it is we are storing in the list, and a next reference that refers to the next node in the list:</p>
+<hr />
+<p>リスト内で一貫したdata(保持しているものが何であれ,データを格納しておく)とリスト内の自分の次のノードを参照するためのnext,の二つである:</p>
+</section>
+<section class="slide level1">
+
+<p>Nodes link together to form a list:</p>
+<hr />
+<p>ノードが互いにリンクし,リストを形成する:</p>
+</section>
+<section class="slide level1">
+
+<p>A head pointer is used to point to the front of the list, and the end of the list is indicated by a node with a null reference in its next field.</p>
+<hr />
+<p>headのポインタをリストの先頭を指すのに使い,nextフィールドがnull参照であるノードがリストの終わりを示す.</p>
+</section>
+<section class="slide level1">
+
+<p>Using a linked list to implement stacks will allow us to keep the top of the stack at the front of the list, where it is easy to add and remove items without having to move any of the other stack contents.</p>
+<hr />
+<p>スタックの実装に連結リストを用いることで,リストの先頭でスタックのtopを保存することができ,そこ(リストの先頭)ではスタックの中身の他のどの要素も移動することがなく,要素の削除,追加が簡単である.</p>
+</section>
+<section class="slide level1">
+
+<p>Only a few references will need to change.</p>
+<hr />
+<p>たった2,3の(ノードの)参照を変更する必要があるだけだ.</p>
+</section>
+<section class="slide level1">
+
+<p>Nodes</p>
+<hr />
+<p>ノード</p>
+</section>
+<section class="slide level1">
+
+<p>A Node class is used to represent the nodes that link together to form linked lists.</p>
+<hr />
+<p>ノードクラスを,連結リスト形成のために相互にリンクするノードの,表現に使用する.</p>
+</section>
+<section class="slide level1">
+
+<p>A typical Node class has only its two fields, data and next, and a constructor, as in Listing 3.3.</p>
+<hr />
+<p>典型的なノードクラスは,Listing 3.3のように,dataとnextの(たった)二つのフィールドと(一つの)コンストラクタをもっている.</p>
+</section>
+<section class="slide level1">
+
+<p>To implement a stack, we only need two linked list operations: insert and remove from the front of the list.</p>
+<hr />
+<p>スタックを実装するために,二つの連結リストの操作を要求するだけだ:それはリストの先頭の削除と(リストの先頭への)挿入である.</p>
+</section>
+<section class="slide level1">
+
+<p>Insertion at Front</p>
+<hr />
+<p>先頭への挿入</p>
+</section>
+<section class="slide level1">
+
+<p>Inserting a new item at the front of a linked list takes three steps:</p>
+<hr />
+<p>新しい要素を連結リストの先頭へ挿入するには3段階の手順が必要だ:</p>
+</section>
+<section class="slide level1">
+
+<ol type="1">
+<li>Create a new node:</li>
+</ol>
+<hr />
+<ol type="1">
+<li>新たなノードをつくる:</li>
+</ol>
+</section>
+
+</section>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/head.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 1.4,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/zoom-js/zoom.js', async: true },
+          { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    <script>
+      var tran = 120;
+      var opac = 0.3;
+      var translateY = 0;
+      var set = function(ix) {
+          p = Reveal.getSlide(ix.h, ix.v - 1);
+          f = Reveal.getSlide(ix.h, ix.v + 1);
+          if (p !== undefined) {
+              p.style.transform = 'translateY(-' + tran + '%)';
+              p.style.opacity = opac;
+          }
+          if (f !== undefined) {
+              f.style.transform = 'translateY(+' + tran + '%)';
+              f.style.opacity = opac;
+          }
+      }
+      var unset = function(ix) {
+          p = Reveal.getSlide(ix.h, ix.v - 1);
+          f = Reveal.getSlide(ix.h, ix.v + 1);
+          if (p !== undefined) {
+              p.style.transform = '';
+              p.style.opacity = '';
+          }
+          if (f !== undefined) {
+              f.style.transform = '';
+              f.style.opacity = '';
+          }
+      }
+      var updateTransform = function() {
+          Reveal.getCurrentSlide().style.transform = "translateY("+translateY+"%)";
+      }
+      Reveal.addEventListener('slidechanged', function(event) {
+          set(Reveal.getIndices(event.currentSlide));
+          unset(Reveal.getIndices(event.previousSlide));
+      });
+      Reveal.configure({
+          keyboard: {
+              84: function() { unset(Reveal.getIndices()); },
+              80: function() { translateY -= 10; updateTransform(); },
+              78: function() { translateY += 10; updateTransform(); },
+              72: function() { translateY = 0; updateTransform(); },
+          },
+      })
+    </script>
+    </body>
+</html>
