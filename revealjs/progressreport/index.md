@@ -5,37 +5,33 @@ history: true
 # minScale: 1.4
 css: style.css
 
-title: Pandoc test
+title: Progress report
 author: Sodeyama
-date: 2016.6.14
+date: 2016.7.15
 ...
 
-# Sample
+# 概要
+ - 現状
+ - 論文紹介
+ - 研究テーマについて
+ - 今後の予定
 
-## Today's menu
+# 現状
 
- - Pasta
- - Sushi
- - Pizza
+## モンテカルロ木探索実装中
+## 論文を読んでみた
+ - 局所評価関数を使う新たなUCT探索法の提案とオセロによる評価」
+ - 前原彰太　橋本剛　小林康幸
+ - 2010年6月
+ - 情報処理学会研究報告
 
-## next I done
+# 論文紹介
 
-This is **bold** text.
+# 研究テーマについて
 
-## italic
+# 今後の予定
+ - 研究テーマの詳細を決める
+ - CUDAの学習
 
-This is _italic_ text.
 
-# MathJax
-
-## Euler's equation
-
-------
-
-Let $i$ be imaginary number---such that
-$$i^2 = \sqrt{-1}$$
-
-Then, **Euler's equation** follow:
-$$e^{ix} = \cos x + i \sin x$$
-
-# any questions?
+ 
