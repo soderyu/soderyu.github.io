@@ -2,7 +2,7 @@ MAIN=index
 
 $(MAIN).html: $(MAIN).md
 	pandoc -f markdown -sSt revealjs \
-	--mathjax="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" -o $@ $<
+	--mathjax="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" --slide-level 2 -o $@ $<
 
 .PHONY: clean clean-all
 clean-all: clean

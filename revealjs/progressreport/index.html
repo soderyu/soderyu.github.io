@@ -23,6 +23,7 @@
   <!--[if lt IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/html5shiv.js"></script>
   <![endif]-->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 </head>
 <body>
   <div class="reveal">
@@ -34,45 +35,77 @@
   <h3 class="date">2016.7.15</h3>
 </section>
 
-<section id="概要" class="slide level1">
-<h1>概要</h1>
+<section><section id="概要" class="titleslide slide level1"><h1>概要</h1></section><section id="section" class="slide level2">
+<h1></h1>
 <ul>
 <li>現状</li>
 <li>論文紹介</li>
 <li>研究テーマについて</li>
 <li>今後の予定</li>
 </ul>
-</section>
-<section id="現状" class="slide level1">
-<h1>現状</h1>
-</section>
-<section class="slide level1">
-
-<h2 id="モンテカルロ木探索実装中">モンテカルロ木探索実装中</h2>
-</section>
-<section class="slide level1">
-
-<h2 id="論文を読んでみた">論文を読んでみた</h2>
+</section></section>
+<section><section id="現状" class="titleslide slide level1"><h1>現状</h1></section><section id="モンテカルロ木探索実装中" class="slide level2">
+<h1>モンテカルロ木探索実装中</h1>
+</section><section id="論文を読んでみた" class="slide level2">
+<h1>論文を読んでみた</h1>
 <ul>
 <li>局所評価関数を使う新たなUCT探索法の提案とオセロによる評価</li>
 <li>前原彰太 橋本剛 小林康幸</li>
 <li>2010年6月</li>
 <li>情報処理学会研究報告</li>
 </ul>
-</section>
-<section id="論文紹介" class="slide level1">
-<h1>論文紹介</h1>
-</section>
-<section id="研究テーマについて" class="slide level1">
-<h1>研究テーマについて</h1>
-</section>
-<section id="今後の予定" class="slide level1">
-<h1>今後の予定</h1>
+</section></section>
+<section><section id="論文紹介" class="titleslide slide level1"><h1>論文紹介</h1></section><section id="局所評価関数を使う新たなuct探索法の提案とオセロによる評価" class="slide level2">
+<h1>「局所評価関数を使う新たなUCT探索法の提案とオセロによる評価」</h1>
+</section><section id="内容一覧" class="slide level2">
+<h1>内容一覧</h1>
 <ul>
-<li>研究テーマの詳細を決める</li>
-<li>CUDAの学習</li>
+<li>研究背景</li>
+<li>UCB値とモンテカルロ木探索</li>
+<li>提案手法</li>
+<li>実験結果</li>
 </ul>
-</section>
+</section><section id="研究背景" class="slide level2">
+<h1>研究背景</h1>
+<ul>
+<li>モンテカルロ木探索 = モンテカルロ法 + UCT</li>
+<li>局面の評価関数の研究はほとんど行われていない</li>
+</ul>
+<!-- リストの終わり -->
+<p>→UCBの値に局面評価関数を加えてみる</p>
+</section><section id="ucb値とモンテカルロ木探索" class="slide level2">
+<h1>UCB値とモンテカルロ木探索</h1>
+<ul>
+<li>計算式 : <span class="math display">\[UCB値 = \overline{ x_j }+c\sqrt{ \frac{ 2\log n }{ n_j } }\]</span></li>
+<li><span class="math inline">\(\overline{ x_j }\)</span> : 期待値</li>
+<li><span class="math inline">\(c\sqrt{ \frac{ 2\log n }{ n_j } }\)</span> : バイアス</li>
+</ul>
+</section><section id="大浦の手法" class="slide level2">
+<h1>大浦の手法</h1>
+<ul>
+<li>合法手の数をカウント</li>
+<li>オセロ : 合法手が多い = 有利</li>
+<li>終局の情報　＋　合法手の数</li>
+</ul>
+</section><section id="提案手法の木探索" class="slide level2">
+<h1>提案手法の木探索</h1>
+<ul>
+<li>Sum1 : 先手の子ノード数</li>
+<li>Sum2 : 後手の子ノード数</li>
+<li>Score : 終局での状況</li>
+</ul>
+</section><section id="提案手法-uct" class="slide level2">
+<h1>提案手法 : UCT+</h1>
+<ul>
+<li><span class="math display">\[UCB+値 = (\overline{ x_j }+E_j)+c\sqrt{ \frac{ 2\log n }{ n_j } }\]</span></li>
+<li><span class="math inline">\(E_j\)</span> : Sum1,Sum2</li>
+<li><span class="math inline">\(x_j\)</span> : Score</li>
+</ul>
+</section><section id="実験結果" class="slide level2">
+<h1>実験結果</h1>
+</section></section>
+<section><section id="研究テーマについて" class="titleslide slide level1"><h1>研究テーマについて</h1></section></section>
+<section><section id="今後の予定" class="titleslide slide level1"><h1>今後の予定</h1></section></section>
     </div>
   </div>
 
