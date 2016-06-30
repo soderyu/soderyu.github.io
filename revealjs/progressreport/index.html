@@ -48,12 +48,22 @@
 <h1>モンテカルロ木探索実装中</h1>
 </section><section id="論文を読んでみた" class="slide level2">
 <h1>論文を読んでみた</h1>
-<ul>
-<li>局所評価関数を使う新たなUCT探索法の提案とオセロによる評価</li>
-<li>前原彰太 橋本剛 小林康幸</li>
-<li>2010年6月</li>
-<li>情報処理学会研究報告</li>
-</ul>
+</section><section class="slide level2">
+
+<dl>
+<dt>title</dt>
+<dd><p>局所評価関数を使う新たなUCT探索法の提案とオセロによる評価</p>
+</dd>
+<dt>author</dt>
+<dd><p>前原彰太 橋本剛 小林康幸</p>
+</dd>
+<dt>date</dt>
+<dd>2010年6月
+</dd>
+<dt>in</dt>
+<dd>情報処理学会研究報告
+</dd>
+</dl>
 </section></section>
 <section><section id="論文紹介" class="titleslide slide level1"><h1>論文紹介</h1></section><section id="局所評価関数を使う新たなuct探索法の提案とオセロによる評価" class="slide level2">
 <h1>「局所評価関数を使う新たなUCT探索法の提案とオセロによる評価」</h1>
@@ -112,14 +122,91 @@
 <p>以下に実験結果<a href="#/fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>を記載する.</p>
 </section><section class="slide level2">
 
-<figure>
-<img src="monte12.png" />
-</figure>
+<table style="width:76%;">
+<caption>表1 UCTによる正解率(単位:%)</caption>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">S=30</th>
+<th style="text-align: center;">S=40</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Playout=10000</td>
+<td style="text-align: center;">47.83</td>
+<td style="text-align: center;">56.33</td>
+</tr>
+<tr class="even">
+<td>Playout=30000</td>
+<td style="text-align: center;">50.17</td>
+<td style="text-align: center;">63.50</td>
+</tr>
+</tbody>
+</table>
 </section><section class="slide level2">
 
-<figure>
-<img src="monte3.png" />
-</figure>
+<table style="width:76%;">
+<caption>表2 UCT+による正解率(単位:%)</caption>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">S=30</th>
+<th style="text-align: center;">S=40</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Playout=10000</td>
+<td style="text-align: center;">82.17</td>
+<td style="text-align: center;">82.50</td>
+</tr>
+<tr class="even">
+<td>Playout=30000</td>
+<td style="text-align: center;">87.50</td>
+<td style="text-align: center;">88.33</td>
+</tr>
+</tbody>
+</table>
+</section><section class="slide level2">
+
+<table style="width:76%;">
+<caption>表3 単純な手法の正解率(単位:%)</caption>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">S=30</th>
+<th style="text-align: center;">S=40</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ランダムプレイ</td>
+<td style="text-align: center;">45.30</td>
+<td style="text-align: center;">46.70</td>
+</tr>
+<tr class="even">
+<td>モンテカルロ法(Playout=2000)</td>
+<td style="text-align: center;">45.00</td>
+<td style="text-align: center;">57.33</td>
+</tr>
+</tbody>
+</table>
 </section><section class="slide level2">
 
 <ul>
