@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Sodeyama">
-  <title>Progress report</title>
+  <title>進捗報告</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,13 +30,13 @@
     <div class="slides">
 
 <section>
-  <h1 class="title">Progress report</h1>
+  <h1 class="title">進捗報告</h1>
   <h2 class="author">Sodeyama</h2>
   <h3 class="date">2016.7.15</h3>
 </section>
 
-<section><section id="概要" class="titleslide slide level1"><h1>概要</h1></section><section id="section" class="slide level2">
-<h1></h1>
+<section><section id="概要" class="titleslide slide level1"><h1>概要</h1></section><section class="slide level2">
+
 <ul>
 <li>現状</li>
 <li>論文紹介</li>
@@ -71,7 +71,6 @@
 <li>モンテカルロ木探索 = モンテカルロ法 + UCT</li>
 <li>局面の評価関数の研究はほとんど行われていない</li>
 </ul>
-<!-- リストの終わり -->
 <p>→UCBの値に局面評価関数を加えてみる</p>
 </section><section id="ucb値とモンテカルロ木探索" class="slide level2">
 <h1>UCB値とモンテカルロ木探索</h1>
@@ -93,19 +92,80 @@
 <li>Sum1 : 先手の子ノード数</li>
 <li>Sum2 : 後手の子ノード数</li>
 <li>Score : 終局での状況</li>
+<li>■ : 先手番ノード</li>
+<li>〇 : 後手番ノード</li>
 </ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="uct.png" />
+</figure>
 </section><section id="提案手法-uct" class="slide level2">
 <h1>提案手法 : UCT+</h1>
 <ul>
-<li><span class="math display">\[UCB+値 = (\overline{ x_j }+E_j)+c\sqrt{ \frac{ 2\log n }{ n_j } }\]</span></li>
+<li><span class="math display">\[UCB値 = (\overline{ x_j }+E_j)+c\sqrt{ \frac{ 2\log n }{ n_j } }\]</span></li>
 <li><span class="math inline">\(E_j\)</span> : Sum1,Sum2</li>
 <li><span class="math inline">\(x_j\)</span> : Score</li>
 </ul>
 </section><section id="実験結果" class="slide level2">
 <h1>実験結果</h1>
+<p>以下に実験結果<a href="#/fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>を記載する.</p>
+</section><section class="slide level2">
+
+<figure>
+<img src="monte12.png" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="monte3.png" />
+</figure>
+</section><section class="slide level2">
+
+<ul>
+<li>最善手がわかっている棋譜ファイル300件と比較</li>
+<li>S=40は初手から40手目が終了した局面から探索を開始するということ</li>
+</ul>
+</section><section id="考察" class="slide level2">
+<h1>考察</h1>
+<ul>
+<li>表1,表2ともに探索数が多いと正解率も高い</li>
+<li>表1,表3から,木が成長しないモンテカルロ法より,木が成長するUCT探索が優れていることがわかる</li>
+<li>UCTよりUCT+のほうが勝率が高い</li>
+</ul>
 </section></section>
-<section><section id="研究テーマについて" class="titleslide slide level1"><h1>研究テーマについて</h1></section></section>
-<section><section id="今後の予定" class="titleslide slide level1"><h1>今後の予定</h1></section></section>
+<section><section id="研究テーマについて" class="titleslide slide level1"><h1>研究テーマについて</h1></section><section class="slide level2">
+
+<ul>
+<li>nipでモンテカルロ法を実装中</li>
+<li>ランダムに位置を選んでtipを置くことはできた</li>
+</ul>
+<p><br />
+<br />
+※<a href="http://www.nakajim.net/index.php?plugin=attach&amp;refer=%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%E3%81%A7%E3%81%8D%E3%82%8B%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9&amp;openfile=Nipp.pdf">使用素材</a></p>
+</section><section class="slide level2">
+
+<figure>
+<img src="nip.png" alt="実装したnip" /><figcaption>実装したnip</figcaption>
+</figure>
+</section></section>
+<section><section id="今後の予定" class="titleslide slide level1"><h1>今後の予定</h1></section><section class="slide level2">
+
+<ul>
+<li>研究テーマの詳細を決める</li>
+<li>CUDAの学習</li>
+</ul>
+</section></section>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>引用:</p>
+<p>「局所評価関数を使う新たなUCT探索法の提案とオセロによる評価」<br />
+前原彰太　橋本剛　小林康幸　<br />
+2010年6月<br />
+情報処理学会研究報告<a href="#/fnref1">↩</a></p></li>
+</ol>
+</section>
     </div>
   </div>
 

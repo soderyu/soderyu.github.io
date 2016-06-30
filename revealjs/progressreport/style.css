@@ -1,3 +1,14 @@
 .reveal .slides section h1 {
-    font-size: 2.5em;
+    font-size: 4.0em;
+}
+
+.reveal .slides section section h1 {
+    font-size: 2.0em;
+}
+.reveal .slides section section.titleslide h1 {
+    font-size: 3.0em;
+}
+
+.reveal .slides section h2 {
+    font-size: 1.7em;
 }
