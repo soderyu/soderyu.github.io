@@ -166,6 +166,12 @@ Table: 表3 単純な手法の正解率(単位:%)
 
 ![実装したnip](nip.png)
 
+---------
+
+[ここ][hoge]にモンテカルロ法によるプレイアウトの一例を示す.
+
+[hoge]:https://soderyu.github.io/revealjs/progressreport/main.pdf
+
 # 今後の予定
 
 ----------
