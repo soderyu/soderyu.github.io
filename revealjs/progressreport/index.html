@@ -89,11 +89,16 @@
 <li><span class="math inline">\(\overline{ x_j }\)</span> : 期待値</li>
 <li><span class="math inline">\(c\sqrt{ \frac{ 2\log n }{ n_j } }\)</span> : バイアス</li>
 </ul>
-</section><section id="大浦の手法" class="slide level2">
-<h1>大浦の手法</h1>
+</section><section id="従来の手法" class="slide level2">
+<h1>従来の手法</h1>
 <ul>
 <li>合法手の数をカウント</li>
 <li>オセロ : 合法手が多い = 有利</li>
+</ul>
+</section><section id="大浦longnote2の手法" class="slide level2">
+<h1>大浦<a href="#/fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>の手法</h1>
+<ul>
+<li>木探索後に評価関数を用いて手を選択</li>
 <li>終局の情報　＋　合法手の数</li>
 </ul>
 </section><section id="提案手法の木探索" class="slide level2">
@@ -117,9 +122,16 @@
 <li><span class="math inline">\(E_j\)</span> : Sum1,Sum2</li>
 <li><span class="math inline">\(x_j\)</span> : Score</li>
 </ul>
+</section><section id="実験方法" class="slide level2">
+<h1>実験方法</h1>
+<ul>
+<li>最善手がわかっている棋譜ファイル300件と比較</li>
+<li>正解数 = (正解数 + 引き分け数 * 0.5) / 棋譜数</li>
+<li>S=40は初手から40手目が終了した局面から探索を開始するということ</li>
+</ul>
 </section><section id="実験結果" class="slide level2">
 <h1>実験結果</h1>
-<p>以下に実験結果<a href="#/fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>を記載する.</p>
+<p>以下に実験結果<a href="#/fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>を記載する.</p>
 </section><section class="slide level2">
 
 <table style="width:76%;">
@@ -207,12 +219,6 @@
 </tr>
 </tbody>
 </table>
-</section><section class="slide level2">
-
-<ul>
-<li>最善手がわかっている棋譜ファイル300件と比較</li>
-<li>S=40は初手から40手目が終了した局面から探索を開始するということ</li>
-</ul>
 </section><section id="考察" class="slide level2">
 <h1>考察</h1>
 <ul>
@@ -224,8 +230,8 @@
 <section><section id="研究テーマについて" class="titleslide slide level1"><h1>研究テーマについて</h1></section><section class="slide level2">
 
 <ul>
-<li>nipでモンテカルロ法を実装中</li>
-<li>ランダムに位置を選んでtipを置くことはできた</li>
+<li>nipでモンテカルロ法を実装</li>
+<li>うまくいかない場合があるかもしれないので,要検証</li>
 </ul>
 <p><br />
 <br />
@@ -244,6 +250,7 @@
 <ul>
 <li>研究テーマの詳細を決める</li>
 <li>CUDAの学習</li>
+<li>とりあえずNipの一部分(for文いくつか)CUDA化</li>
 </ul>
 <p><br />
 <br />
@@ -252,11 +259,12 @@
 <section class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>引用:</p>
+<li id="fn1"><p>大浦教彰:標本抽出法の改良について,島根大学,平成17年度卒業<a href="#/fnref1">↩</a></p></li>
+<li id="fn2"><p>引用:</p>
 <p>「局所評価関数を使う新たなUCT探索法の提案とオセロによる評価」<br />
 前原彰太　橋本剛　小林康幸　<br />
 2010年6月<br />
-情報処理学会研究報告<a href="#/fnref1">↩</a></p></li>
+情報処理学会研究報告<a href="#/fnref2">↩</a></p></li>
 </ol>
 </section>
     </div>

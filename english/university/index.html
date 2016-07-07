@@ -1,15 +1,678 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Soderyu | github.io</title>
-    <link rel="stylesheet" href="style.css">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  </head>
-  <body>
-    <h1>Welcome to Soderyu page!</h1>    
-    <p>This is sample page.</p>
-    <p>● <a href="sample-english.html">sample</a></p>
-    <p></p>
-    <p><img src="SR.png" alt="mark"></p>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Sodeyama">
+  <title>英語 pp.a-b</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/theme/serif.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/print/pdf.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+
+<section>
+  <h1 class="title">英語 pp.a-b</h1>
+  <h2 class="author">Sodeyama</h2>
+  <h3 class="date">20xx.x.xx</h3>
+</section>
+<section class="slide level1">
+
+<h3 id="analysis-of-binary-search">Analysis of Binary Search</h3>
+<hr />
+<h3 id="二分探索の解析">二分探索の解析</h3>
+</section>
+<section class="slide level1">
+
+<p>Listing 2.3 looks difficult to analyze because of the unknown number of repetitions in the loop on line 5.</p>
+<hr />
+<p>リスト2.3は、5行目のループの反復回数がわからないため、解析が難しいように思えます。</p>
+</section>
+<section class="slide level1">
+
+<p>However, we can simplify a worst-case analysis by assuming that the array size <span class="math inline">\(n\)</span> is a power of 2.</p>
+<hr />
+<p>ですが、配列のサイズ<span class="math inline">\(n\)</span>が2のべき乗であると仮定すれば、最悪ケースの解析は簡単にできます。</p>
+</section>
+<section class="slide level1">
+
+<p>If <span class="math inline">\(n = 2^k\)</span>, then in the worst case, binary search will divide the array in half approximately <span class="math inline">\(k\)</span> times.</p>
+<hr />
+<p><span class="math inline">\(n = 2^k\)</span>のとき、最悪ケースでは、二分探索は配列をおおよそ<span class="math inline">\(k\)</span>回、半分に分割するでしょう。</p>
+</section>
+<section class="slide level1">
+
+<p>To see why, watch the approximate size of the region <code>data[left...right]</code>, where the target must be, after each iteration:</p>
+<hr />
+<p>なぜかそうなるかを考えるのに、検索対象が入っている<code>data[left...right]</code>の範囲のおおよそのサイズに注目してください。それぞれの繰り返しの後に、（次のようになっています）：</p>
+</section>
+<section class="slide level1">
+
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">Size of data[left..right]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>After 1 iteration</td>
+<td style="text-align: center;"><span class="math inline">\(2^{k-1}\)</span></td>
+</tr>
+<tr class="even">
+<td>After 2 iterations</td>
+<td style="text-align: center;"><span class="math inline">\(2^{k-2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>After 3 iterations</td>
+<td style="text-align: center;"><span class="math inline">\(2^{k-3}\)</span></td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>After <span class="math inline">\(k\)</span> iterations</td>
+<td style="text-align: center;"><span class="math inline">\(2^{k-k} = 2^0 = 1\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">data[left..right]のサイズ</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>１回反復後</td>
+<td style="text-align: center;"><span class="math inline">\(2^{k-1}\)</span></td>
+</tr>
+<tr class="even">
+<td>２回反復後</td>
+<td style="text-align: center;"><span class="math inline">\(2^{k-2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>３回反復後</td>
+<td style="text-align: center;"><span class="math inline">\(2^{k-3}\)</span></td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(k\)</span>回反復後</td>
+<td style="text-align: center;"><span class="math inline">\(2^{k-k} = 2^0 = 1\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level1">
+
+<p>This means that in the worst case, the loop runs approximately <span class="math inline">\(k\)</span> times, and so, binary search is <span class="math inline">\(O(k)\)</span> for <span class="math inline">\(n = 2^k\)</span>.</p>
+<hr />
+<p>これは、最悪ケースでは、ループは<span class="math inline">\(k\)</span>回実行され、それゆえ、二分探索は<span class="math inline">\(n = 2^k\)</span>のとき<span class="math inline">\(O(k)\)</span>であるということになります。</p>
+</section>
+<section class="slide level1">
+
+<p>To obtain an expression in terms of <span class="math inline">\(n\)</span>, we use the fact: <span class="math display">\[\text{If }n = 2^k\text{, then }k = \log_2 n\]</span></p>
+<hr />
+<p><span class="math inline">\(n\)</span>による式にするために、 <span class="math display">\[n = 2^k ならば、 k = \log_2 n\]</span> という事実(知識)を用います。</p>
+</section>
+<section class="slide level1">
+
+<p>Thus, binary search is a <span class="math inline">\(O(\log n)\)</span> algorithm.</p>
+<hr />
+<p>したがって、二分探索は<span class="math inline">\(O(\log n)\)</span>のアルゴリズムです。</p>
+</section>
+<section class="slide level1">
+
+<h3 id="exercises">Exercises</h3>
+<hr />
+<h3 id="演習問題">演習問題</h3>
+</section>
+<section class="slide level1">
+
+<ol type="1">
+<li><p>Show how binary search works on the array</p>
+<pre><code>{2, 5, 7, 10, 22, 32, 34, 40}</code></pre>
+<p>when searching for each of the elements below. Show the values of <code>left</code>, <code>right</code>, and <code>mid</code> as they change.</p></li>
+</ol>
+<hr />
+<ol type="1">
+<li><p>次の配列で、下に示した要素それぞれについて、二分探索がどのように動くか示しなさい。</p>
+<pre><code>{2, 5, 7, 10, 22, 32, 34, 40}</code></pre>
+<p><code>left</code>や<code>right</code>、<code>mid</code>の値を、それらの変化とともに示しなさい。</p></li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="2" type="1">
+<li><p>Show how binary search works on the array</p>
+<pre><code>{10, 13, 24, 36, 37, 41, 44, 66, 86, 100}</code></pre>
+<p>when searching for each of the elements below. Show the values of <code>left</code>, <code>right</code>, and <code>mid</code> as they change.</p></li>
+</ol>
+<hr />
+<ol start="2" type="1">
+<li><p>次の配列で、下に示した要素それぞれについて、二分探索がどのように動くか示しなさい。</p>
+<pre><code>{10, 13, 24, 36, 37, 41, 44, 66, 86, 100}</code></pre>
+<p><code>left</code>や<code>right</code>、<code>mid</code>の値を、それらの変化とともに示しなさい。</p></li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="3" type="1">
+<li>Explain why best-case performance is not helpful for search methods like linear search or binary search.</li>
+</ol>
+<hr />
+<ol start="3" type="1">
+<li>線形探索や二分探索に対して、なぜ最良実行時間は役に立たないのか説明しなさい。</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="4" type="1">
+<li>Determine which is faster on unsorted data: linear search, or insertion sort followed by binary search. Assume worst case.</li>
+</ol>
+<hr />
+<ol start="4" type="1">
+<li>ソートされていないデータに対して、線形探索か、挿入ソートと二分探索のどちらが速いか判定しなさい。 最悪ケースを想定せよ。</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="5" type="1">
+<li>Add <code>binarySearch()</code> from Listing 2.3 to the <code>ArrayFunctions</code> class, and write code in <code>main()</code> to call binary search on a short, sorted array of integers. Use an array initializer.</li>
+</ol>
+<hr />
+<ol start="5" type="1">
+<li><code>ArrayFunctions</code>クラスにリスト2.3の<code>binarySearch()</code>を加え、<code>main()</code>に、短いソート済みの整数配列の二分探索を呼び出すコードを書きなさい。 配列初期化を使うこと。</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="6" type="1">
+<li>Test <code>binarySearch()</code> on a sorted array of 100 random integers. Use <code>insertionSort()</code> from Section 2.2 to sort the random data.</li>
+</ol>
+<hr />
+<ol start="6" type="1">
+<li>100個のランダムな整数の配列で<code>binarySearch()</code>をテストしなさい。 ランダムデータをソートするには、2.2節の<code>insertionSort()</code>を使うこと。</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<ol start="7" type="1">
+<li><p>It may seem as thought lines 10 and 12 in Listing 2.3 are unnecessary optimizations. Replace those lines of code with the simpler alternatives:</p>
+<pre><code>right = mid;</code></pre>
+<p>and</p>
+<pre><code>left = mid;</code></pre>
+<p>Describe the result.</p></li>
+</ol>
+<hr />
+<ol start="7" type="1">
+<li><p>リスト2.3の10行目と12行目は不必要な最適化だと思われます。 それらの行のコードを次のような単純な代わり(のコード)に置き換えて、結果を説明しなさい。</p>
+<pre><code>right = mid;</code></pre>
+<pre><code>left = mid;</code></pre></li>
+</ol>
+</section>
+<section class="slide level1">
+
+<table style="width:19%;">
+<colgroup>
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Chapter 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Integer Stacks</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table style="width:19%;">
+<colgroup>
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">第3章</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">整数スタック</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level1">
+
+<p>We now turn to the study of data structures.</p>
+<hr />
+<p>ここからは、データ構造を学ぶことにしましょう。</p>
+</section>
+<section class="slide level1">
+
+<p>A <strong>data structure</strong> is just a way of storing data, along with a set of operations for manipulating that data.</p>
+<hr />
+<p><strong>データ構造</strong>とは、まさにデータを格納する方法であり、データを処理するための操作の一式を伴うものです。</p>
+</section>
+<section class="slide level1">
+
+<p>If you have used anything like a list, map, array, or dictionary, then you already have some experience with data structures.</p>
+<hr />
+<p>もしリストやマップ、配列、辞書などを使ったことがあるなら、すでにデータ構造を使った経験がいくぶんかあると言えます。</p>
+</section>
+<section class="slide level1">
+
+<p>Our purpose here is to implementation, and performance.</p>
+<hr />
+<p>ここでの目的は、実装と性能です。</p>
+</section>
+<section class="slide level1">
+
+<p>More advanced features of Java will also be described as we need them along the way.</p>
+<hr />
+<p>さらに進んだJavaの特長も、必要なときに、流れに沿って紹介されるでしょう。</p>
+</section>
+<section class="slide level1">
+
+<p>We begin with a simple data structure known as a stack.</p>
+<hr />
+<p>まずはスタックという単純なデータ構造から始めます。</p>
+</section>
+<section class="slide level1">
+
+<h2 id="stack-interface">3.1 Stack Interface</h2>
+<hr />
+<h2 id="スタックインタフェイス">3.1 スタックインタフェイス</h2>
+</section>
+<section class="slide level1">
+
+<p>A <strong>stack</strong> is an abstraction of a vertical stack of physical objects.</p>
+<hr />
+<p><strong>スタック</strong>は、物理的な物体を垂直に積み上げることを抽象化したものです。</p>
+</section>
+<section class="slide level1">
+
+<p>For example, imagine a tall stack of books.</p>
+<hr />
+<p>例えば、高く積み上げられた本をイメージしてください。</p>
+</section>
+<section class="slide level1">
+
+<p>It is hard to pull a book out from the middle or bottom of the stack.</p>
+<hr />
+<p>その真ん中や下の方から本を引き抜くことは困難ですね。</p>
+</section>
+<section class="slide level1">
+
+<p>However, it is easy to add a new book to the top of the stack; this is called <strong>pushing</strong> onto the stack.</p>
+<hr />
+<p>しかし、その一番上に新しい本を加えるのは簡単で、これをスタックへの<strong>プッシュ</strong>といいます。</p>
+</section>
+<section class="slide level1">
+
+<p>And it is similarly easy to remove the top book from the stack, which is called <strong>popping</strong> the top of the stack.</p>
+<hr />
+<p>同様に一番上の本を取り去るのも簡単で、こちらはスタックの先頭の<strong>ポップ</strong>といいます。</p>
+</section>
+<section class="slide level1">
+
+<p>stacks <em>only</em> allow these two ways of adding and removing items: pushing onto the top and popping from the top.</p>
+<hr />
+<p>スタックには、要素を追加したり削除したりするのに、先頭へのプッシュと先頭からのポップという二通りの方法 <em>しか</em> ありません。</p>
+</section>
+<section class="slide level1">
+
+<p>Stacks are also known as a <strong>last-in, first-out (LIFO)</strong> data structures, because the last element inserted will be the first one removed.</p>
+<hr />
+<p>スタックは、後に挿入された要素が先に取り出されるため、<strong>後入れ先出し(last-in first-out, LIFO)</strong>のデータ構造ともいいます。</p>
+</section>
+<section class="slide level1">
+
+<p>Table 3.1 gives a complete list of Integer Stack methods.</p>
+<hr />
+<p>表3.1に書かれているのは、整数スタックのメソッドの全てです。</p>
+</section>
+<section class="slide level1">
+
+<p>With it, you can begin writing code using stacks.</p>
+<hr />
+<p>これを使って、スタックを使用したコードを書き始められます。</p>
+</section>
+<section class="slide level1">
+
+<p>Types described in this way, via a list of public methods, are known as abstract data types.</p>
+<hr />
+<p>このように、パブリックメソッドの一覧によって記述された型は、抽象データ型といいます。</p>
+</section>
+<section class="slide level1">
+
+<h3 id="abstract-data-types">Abstract Data Types</h3>
+<hr />
+<h3 id="抽象データ型">抽象データ型</h3>
+</section>
+<section class="slide level1">
+
+<p>An <strong>abstract data type (ADT)</strong> defines the operations of a data type, also known as its <strong>interface</strong>, without specifying the implementations of those operations.</p>
+<hr />
+<p><strong>抽象データ型(abstract data type, ADT)</strong>はデータ型の操作（データ型の<strong>インタフェイス</strong>ともいう）を定めるもので、それらの操作の実装は明示しません。</p>
+</section>
+<section class="slide level1">
+
+<p>This creates an <strong>abstraction</strong>, where interface is separated from implementation in order to hide the details of the implementation:</p>
+<hr />
+<p>これは、インタフェイスが実装の詳細を見せないように実装から分離されている、という<strong>抽象化</strong>を引き起こしています。</p>
+</section>
+<section class="slide level1">
+
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Interface</td>
+<td style="text-align: center;">Implementation</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">What an object can do</td>
+<td style="text-align: center;">How it will be done</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">インタフェイス</td>
+<td style="text-align: center;">実装</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">対象が何をできるか</td>
+<td style="text-align: center;">どうやって実行されるか</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level1">
+
+<p>Abstract data types are usually described by their <strong>application programming interface (API)</strong>, which is a list of the public methods available for that type.</p>
+<hr />
+<p>抽象データ型はふつう、その型が使用できるパブリックメソッドの一覧である、<strong>アプリケーションプログラミングインタフェイス(API)</strong>で説明されます。</p>
+</section>
+<section class="slide level1">
+
+<p>Table 3.1 gives the API of the Integer Stack ADT.</p>
+<hr />
+<p>表3.1に整数スタックADTのAPIが示されています。</p>
+</section>
+<section class="slide level1">
+
+<table>
+<thead>
+<tr class="header">
+<th>Table 3.1: Integer Stack ADT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><code>boolean isEmpty()</code></td>
+</tr>
+<tr class="odd">
+<td>Returns true if stack has no elements in it.</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>int peek()</code></td>
+</tr>
+<tr class="even">
+<td>Returns item at top of stack without removing it.</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><code>int pop()</code></td>
+</tr>
+<tr class="odd">
+<td>Returns and removes item from top of stack.</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>void push(int item)</code></td>
+</tr>
+<tr class="even">
+<td>Adds <code>item</code> to top of stack.</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><code>int size()</code></td>
+</tr>
+<tr class="odd">
+<td>Number of elements in stack.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr class="header">
+<th>表 3.1: 整数スタックADT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><code>boolean isEmpty()</code></td>
+</tr>
+<tr class="odd">
+<td>スタックに要素がないとき真を返す。</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>int peek()</code></td>
+</tr>
+<tr class="even">
+<td>スタックの先頭の要素を削除せずに返す。</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><code>int pop()</code></td>
+</tr>
+<tr class="odd">
+<td>スタックの先頭の要素を削除して返す。</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>void push(int item)</code></td>
+</tr>
+<tr class="even">
+<td><code>item</code>をスタックの先頭に追加する。</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td><code>int size()</code></td>
+</tr>
+<tr class="odd">
+<td>スタックの要素数。</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level1">
+
+<p>In fact, you already have experience with this idea.</p>
+<hr />
+<p>実際、もうすでにこの考え方にふれた経験があるでしょう。</p>
+</section>
+<section class="slide level1">
+
+<p>Think about the Java objects you have used so far, such as <code>String</code>, <code>StringBuilder</code>, or <code>Random</code> objects.</p>
+<hr />
+<p><code>String</code>や<code>StringBuilder</code>、<code>Random</code>オブジェクトのような、これまでに使ってきたJavaのオブジェクトを考えてみてください。</p>
+</section>
+<section class="slide level1">
+
+<p>You did not need to know how any of these objects were implemented in order to use them, as long as you knew their public interfaces.</p>
+<hr />
+<p>これらのオブジェクトを使うときに、それらのパブリックインタフェイスを知りさえすれば、どのオブジェクトに対しても、どのように実装されているかを知る必要がありませんでしたね。</p>
+</section>
+<section class="slide level1">
+
+<p>And the Java API documentation [10] provides exactly this information—the public interface or API—for all Java library classes.</p>
+<hr />
+<p>そして、Java APIドキュメント[10]はまさにこの情報—パブリックインタフェイスかAPI—をすべてのJavaライブラリのクラスについて提供しています。</p>
+</section>
+<section class="slide level1">
+
+<p>Thus, all Java classes support abstract data types via their public methods and documentation.</p>
+<hr />
+<p>つまり、すべてのJavaクラスはパブリックメソッドと文書化を通じて抽象データ型に対応しています。</p>
+</section>
+<section class="slide level1">
+
+<p>But there is more.</p>
+<hr />
+<p>しかし、（述べることは）さらにあります。</p>
+</section>
+<section class="slide level1">
+
+<h3 id="java-interfaces">Java Interfaces</h3>
+<hr />
+<h3 id="javaインタフェイス">Javaインタフェイス</h3>
+</section>
+<section class="slide level1">
+
+<p><strong>Java interfaces</strong> allow us to express ADTs directly in code.</p>
+<hr />
+<p><strong>Javaインタフェイス</strong>によって、ADTを直接コードに表すことができます。</p>
+</section>
+<section class="slide level1">
+
+<p>Java interfaces contain method declarations, describing what an object can do, but no implementation code.</p>
+<hr />
+<p>Javaインタフェイスは、オブジェクトが何が出来るかを記述したメソッド宣言でできていて、実装コードは一切含まれていません。</p>
+</section>
+<section class="slide level1">
+
+<p>It is up to classes to implement the interface and provide code for implementation.</p>
+<hr />
+<p>インタフェイスを実装(implement)し、実装のためのコードを提供するのはクラス次第です。</p>
+</section>
+
+</section>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/head.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 1.4,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/zoom-js/zoom.js', async: true },
+          { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    <script>
+      var tran = 120;
+      var opac = 0.3;
+      var translateY = 0;
+      var set = function(ix) {
+          p = Reveal.getSlide(ix.h, ix.v - 1);
+          f = Reveal.getSlide(ix.h, ix.v + 1);
+          if (p !== undefined) {
+              p.style.transform = 'translateY(-' + tran + '%)';
+              p.style.opacity = opac;
+          }
+          if (f !== undefined) {
+              f.style.transform = 'translateY(+' + tran + '%)';
+              f.style.opacity = opac;
+          }
+      }
+      var unset = function(ix) {
+          p = Reveal.getSlide(ix.h, ix.v - 1);
+          f = Reveal.getSlide(ix.h, ix.v + 1);
+          if (p !== undefined) {
+              p.style.transform = '';
+              p.style.opacity = '';
+          }
+          if (f !== undefined) {
+              f.style.transform = '';
+              f.style.opacity = '';
+          }
+      }
+      var updateTransform = function() {
+          Reveal.getCurrentSlide().style.transform = "translateY("+translateY+"%)";
+      }
+      Reveal.addEventListener('slidechanged', function(event) {
+          set(Reveal.getIndices(event.currentSlide));
+          unset(Reveal.getIndices(event.previousSlide));
+      });
+      Reveal.configure({
+          keyboard: {
+              84: function() { unset(Reveal.getIndices()); },
+              80: function() { translateY -= 10; updateTransform(); },
+              78: function() { translateY += 10; updateTransform(); },
+              72: function() { translateY = 0; updateTransform(); },
+          },
+      })
+    </script>
+    </body>
 </html>
