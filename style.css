@@ -38,7 +38,6 @@ p {
 
 /* ========TEMPLATE FRAMEWORK======== */
 #wrapper {
-   width:700px;
    overflow:hidden;
    margin:-200px 0 0 -350px;
    position:absolute;
@@ -48,7 +47,7 @@ p {
 }
 
 #menu {
-   width:150px;
+   width:462px;
    height:370px;
    float:left;
 }
@@ -59,7 +58,6 @@ p {
 
 #contents {
    width:400px;
-   float:right;
    height:350px;
    overflow:auto;
    padding:10px 130px 10px 10px;
