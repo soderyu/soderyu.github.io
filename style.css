@@ -37,7 +37,9 @@ p {
 
 /* ========TEMPLATE FRAMEWORK======== */
 #wrapper {
+   width:700px;
    overflow:hidden;
+   margin:-200px 0 0 -350px;
    position:absolute;
    top:50%;
    left:50%;
@@ -45,15 +47,21 @@ p {
 }
 
 #menu {
+   width:150px;
+   height:370px;
    float:left;
 }
 
 #contentsWrap {
    overflow:hidden;
 }
+
 #contents {
+   width:400px;
    float:right;
+   height:350px;
    overflow:auto;
+   padding:10px 130px 10px 10px;
 }
 
 #footer {
