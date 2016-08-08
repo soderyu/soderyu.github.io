@@ -9,7 +9,8 @@ body {
     color:#000000;
     font-family:Arial, sans-serif;
     font-size:0.9em;
-
+    letter-spacing:0.05em;
+    
     /* スクロールバーの設定 */
    scrollbar-face-color:#ffffff;
    scrollbar-track-color:#ffffff;
@@ -66,6 +67,74 @@ p {
 
 #footer {
    clear:both;
+}
+
+
+/* ========MENU CUSTOMIZE======== */
+#menu {
+   background-image:url("../images/bg.gif");
+   vertical-align:top;
+   line-height:250%;
+}
+
+#menu ul {
+   list-style:none;
+   margin:0;
+   padding-left:20px;
+}
+
+/* ========CONTENTS CUSTOMIZE======== */
+
+#contents h2 {
+   background:url("../images/yeah.gif") no-repeat;
+   padding:3px 3px 3px 55px;
+   border-bottom:1px #ff9999 dotted;
+   font-size:1em;
+   font-weight:normal;
+   line-height:33px;
+   margin:0;
+}
+
+#contents p {
+   margin:0;
+   padding:0.5em 0 2em 0;
+}
+
+#contents strong {
+   color:red;
+   font-weight:normal;
+   border-bottom:1px dashed #999;
+}
+
+/* ========FOOTER CUSTOMIZE======== */
+#footer {
+   font-size:0.9em;
+   text-align:right;
+}
+
+/* ========ENTERPAGE CUSTOMIZE======== */
+#enter {
+   width:400px;
+   overflow:hidden;
+   margin:-150px 0 0 -200px;
+   position:absolute;
+   top:50%;
+   left:50%;
+   text-align:left;
+}
+
+#enterText {
+   width:260px;
+   float:left;
+   vertical-align:bottom;
+   text-align:right;
+   margin-top:40px;
+}
+
+#enterPhoto {
+   width:130px;
+   float:right;
+   vertical-align:bottom;
 }
 
 
