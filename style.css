@@ -1,148 +1,132 @@
 @charset "UTF-8";
 
 body {
-    background-color: white;
-    alink: aqua;
+    background-color: #fff;
     margin: 0;
     padding: 0;
-    line-height:1.4;
-    color:#000000;
     font-family:Arial, sans-serif;
-    font-size:0.9em;
     letter-spacing:0.05em;
-    
-    /* スクロールバーの設定 */
-   scrollbar-face-color:#ffffff;
-   scrollbar-track-color:#ffffff;
-   scrollbar-arrow-color:#ff9999;
-   scrollbar-3dlight-color:#ffffff;
-   scrollbar-highlight-color:#ffffff;
-   scrollbar-shadow-color:#ffffff;
-   scrollbar-darkshadow-color:#ffffff;
-   overflow-y:auto;
-}
-h1 {
-    background-color: #6699FF;
-    font-size: 2.5em;
-    color: #FFFFFF;
-    padding: .5em 0;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-    margin:1px
-}
-p {
-    font-size: 1.5em;
-    line-height: 16px;
-    text-indent: 1.5em;
 }
 
+header {
+    min-height: 80px;
+    margin-bottom: 30px;
+    background-color: #96b9ff;
+    border-bottom: 1px solid #888;
+    box-shadow: 0 0 5px #888;
+}
 
-/* ========TEMPLATE FRAMEWORK======== */
+header #logo{
+    float: left;
+    max-height: 50px;
+    border: 1px solid #888;
+    margin: 14px 20px 14px 40px;
+    box-shadow: 0 0 12px #fff;
+}
+
+header div {
+    float: left;
+}
+
+header h1 {
+    font-size: 2.2em;
+    color: #e9f0ff;
+    padding: 8px 0 0;
+    margin: 0 auto;
+}
+
+header p {
+    font-size: 0.9em;
+    color: #fff;
+    margin: 0 0 4px;
+}
+
 #wrapper {
-   overflow:hidden;
-   margin:-200px 0 0 -450px;
-   position:absolute;
-   top:50%;
-   left:50%;
-   text-align:left;
+    margin: 0 auto;
+    width: 1100px;
 }
-
-#menu {
-   width:482px;
-   height:370px;
-   float:left;
-}
-
-#contentsWrap {
-   overflow:hidden;
-}
-
-#contents {
-   width:400px;
-   height:350px;
-   overflow:auto;
-   padding:10px 130px 10px 10px;
-}
-
-#footer {
-   clear:both;
-}
-
 
 /* ========MENU CUSTOMIZE======== */
-#menu {
-   background-image:url("../images/bg.gif");
-   vertical-align:top;
-   line-height:250%;
+menu {
+    width: 240px;
+    float: left;
+    padding: 0 0;
+    margin: 0 30px 0 0;
 }
 
-#menu ul {
-   list-style:circle;
-   margin:20px;
-   padding-left:20px;
+menu h2 {
+    height: 32px;
+    font-size: 1.3em;
+    padding: 8px 0 0 10px;
+    padding-left: 10px;
+    background-color: #eee;
+    border-left: 10px solid #f99;
+    margin: 0;
+    margin-bottom: 1px;
 }
+
+#menu {
+    background-image:url("../images/bg.gif");
+    vertical-align:top;
+    line-height:250%;
+}
+
+menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+menu li {
+    height: 30px;
+    padding: 4px 0px 0px 20px;
+    background-color: #f7f7f7;
+    margin-bottom: 1px;
+}
+
+menu li a {
+    font-size: 1.3em;
+    text-decoration: none;
+}           
 
 /* ========CONTENTS CUSTOMIZE======== */
+main {
+    float: left;
+    width: 800px;
 
-#contents h2 {
-   padding:3px 3px 3px 55px;
-   border-bottom:2px #ff9999 dotted;
-   font-size:1.8em;
-   font-weight:normal;
-   line-height:40px;
-   margin:0;
 }
 
-#contents p {
-   margin:0;
-   padding:0.5em 0 2em 0;
+main h2 {
+    padding: 3px 3px 3px 20px;
+    border-left: 10px solid #f99;
+    border-bottom: 2px dotted #f99;
+    font-size: 1.8em;
+    font-weight: normal;
+    margin: 0 0 20px;
 }
 
-#contents strong {
-   color:red;
-   font-weight:normal;
-   border-bottom:1px #999;
+main p {
+    font-size: 1.1em;
+    margin: 20px 0;
+}
+
+main strong {
+    color:red;
+    font-weight:normal;
+    border-bottom:1px #999;
 }
 
 /* ========FOOTER CUSTOMIZE======== */
-#footer {
-   font-size:0.9em;
-   text-align:right;
+footer {
+    clear: both;
+    margin-top: 30px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    color: #777;
+    font-size:0.9em;
 }
 
-/* ========ENTERPAGE CUSTOMIZE======== */
-#enter {
-   width:400px;
-   overflow:hidden;
-   margin:-150px 0 0 -200px;
-   position:absolute;
-   top:50%;
-   left:50%;
-   text-align:left;
+footer a {
+    text-decoration: none;
+    color: #f99;
 }
-
-#enterText {
-   width:260px;
-   float:left;
-   vertical-align:bottom;
-   text-align:right;
-   margin-top:40px;
-}
-
-#enterPhoto {
-   width:130px;
-   float:right;
-   vertical-align:bottom;
-}
-
-
-
-
-
-
-
-
-
-
-
-
